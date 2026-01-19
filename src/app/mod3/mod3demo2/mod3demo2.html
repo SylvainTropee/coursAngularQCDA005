@@ -1,0 +1,18 @@
+<input type="text" [(ngModel)]="name">
+<button (click)="addUser()">Ajouter</button>
+<button (click)="resetName()">Reset</button>
+
+<!-- depuis Angular v17 -->
+@if (name) {
+  <h2>User : {{ name }}</h2>
+}
+<!-- old school -->
+<h2 *ngIf="name">User : {{ name }}</h2>
+
+<ul>
+  @for (user of users; track $index) {
+    <li (click)="removeUser($index)" [ngStyle]="{'color' : user.includes('e') ? 'green' : 'red'}">{{ user }}</li>
+  } @empty {
+    <p>Pas de users !</p>
+  }
+</ul>
