@@ -2,10 +2,11 @@ import { Routes } from '@angular/router';
 import {Mod5home} from './mod5/mod5home/mod5home';
 import {Mod5about} from './mod5/mod5about/mod5about';
 import {Mod5detail} from './mod5/mod5detail/mod5detail';
+import {authGuard} from './mod5/auth-guard';
 
 export const routes: Routes = [
   {path : '', component : Mod5home,},
   {path : 'about-us', component : Mod5about},
-  {path : 'detail/:id', component : Mod5detail},
+  {path : 'detail/:id', component : Mod5detail, canActivate : [authGuard]},
   {path : '**', component : Mod5home},
 ];
