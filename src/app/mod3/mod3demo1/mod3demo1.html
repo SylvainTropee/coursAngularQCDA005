@@ -1,6 +1,7 @@
 <!--property binding                                          interpolation-->
 <h1 [class]="username!.length > 10 ? 'green' : 'red'">Hello {{ username }}</h1>
 <h1 [class]="{'red' : username!.length < 10, 'green' : username!.length > 10}">Hello {{ username }}</h1>
+<!--<h1 [class.red]="username!.length < 10" [class.green]="username!.length > 10">Hello {{ username }}</h1>-->
 
 <!--two way binding-->
 <input type="text" [(ngModel)]="username">
