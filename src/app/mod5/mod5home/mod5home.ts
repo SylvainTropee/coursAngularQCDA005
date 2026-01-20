@@ -11,7 +11,7 @@ import {Router, RouterLink} from '@angular/router';
 })
 export class Mod5home {
 
-  detail : string = "/detail"
+  detail : string = "/detail/123"
 
   constructor(private router : Router) {
   }
@@ -21,7 +21,7 @@ export class Mod5home {
   }
 
   goToDetail() {
-    this.router.navigate(['/detail'])
+    this.router.navigate(['/detail', 1234])
    // this.router.navigateByUrl('/detail')
   }
 

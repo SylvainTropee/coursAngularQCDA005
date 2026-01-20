@@ -6,6 +6,6 @@ import {Mod5detail} from './mod5/mod5detail/mod5detail';
 export const routes: Routes = [
   {path : '', component : Mod5home,},
   {path : 'about-us', component : Mod5about},
-  {path : 'detail', component : Mod5detail},
+  {path : 'detail/:id', component : Mod5detail},
   {path : '**', component : Mod5home},
 ];
