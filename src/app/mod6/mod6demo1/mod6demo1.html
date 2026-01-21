@@ -1,0 +1,52 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <label for="email">Email</label>
+  <input type="text" id="email" name="email" formControlName="email">
+  @if (form.get('email')?.touched || form.get('email')?.dirty) {
+    @if (form.get('email')?.hasError('required')) {
+      <div class="error">Le champ est obligatoire !</div>
+    }
+    @if (form.get('email')?.hasError('email')) {
+      <div class="error">Ce champ n'est pas valide !</div>
+    }
+  }
+
+  <label for="password">Mot de passe</label>
+  <input type="password" id="password" name="password" formControlName="password">
+  @if (form.get('password')?.touched || form.get('password')?.dirty) {
+    @if (form.get('password')?.hasError('required')) {
+      <div class="error">Le champ est obligatoire !</div>
+    }
+    @if (form.get('password')?.hasError('pattern')) {
+      <div class="error">Le mot de passe n'est pas assez complexe !</div>
+    }
+  }
+
+  <label for="date">Date</label>
+  <input type="date" id="date" name="date" formControlName="birthdate">
+  @if (form.get('birthdate')?.touched || form.get('birthdate')?.dirty) {
+    @if (form.get('birthdate')?.hasError('required')) {
+      <div class="error">Le champ est obligatoire !</div>
+    }
+    @if (form.get('birthdate')?.hasError('greaterThan')) {
+      <div class="error">La date doit être inférieure à la date du jour</div>
+    }
+  }
+
+  <label for="newsletter">
+    <input type="checkbox" name="newsletter" id="newsletter" formControlName="newsletter">
+    S'abonner à la newsletter ?
+  </label>
+
+  <label for="job">Métier</label>
+  <select name="job" id="job" formControlName="job">
+    <option value="admin">Admin</option>
+    <option value="dev">Dev</option>
+    <option value="chef">Chef de projet</option>
+  </select>
+
+  <label for="note">Note</label>
+  <input type="range" id="note" min="0" max="10" step="1" formControlName="note">
+
+  <button type="submit">Envoyer</button>
+</form>

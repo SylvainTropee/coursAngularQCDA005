@@ -12,6 +12,7 @@ import {Router, RouterLink} from '@angular/router';
 export class Mod5home {
 
   detail : string = "/detail/123"
+  test : string = "<script>alert('coucou')</script>"
 
   constructor(private router : Router) {
   }
