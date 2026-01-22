@@ -1,0 +1,19 @@
+<h1>Jokes !</h1>
+
+<!--<p>Joke 1 : {{ joke | json }}</p>-->
+<!--<p>Joke 2 : {{ joke$ | async | json }}</p>-->
+
+
+@if(joke2$ | async; as joke){
+  <p>
+    <img src="{{joke?.icon_url}}">
+    Joke 3 : {{ joke?.value }}
+  </p>
+}
+
+@let joke = joke2$ | async;
+<p>
+  <img src="{{joke?.icon_url}}">
+  Joke 3 : {{ joke?.value }}
+</p>
+

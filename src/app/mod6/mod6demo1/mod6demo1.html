@@ -50,3 +50,10 @@
 
   <button type="submit">Envoyer</button>
 </form>
+
+<!--template driven form -->
+<form>
+  <label for="name">Nom</label>
+  <input (input)="checkName($event)" [(ngModel)]="name" type="text" id="name" name="name">
+</form>
+

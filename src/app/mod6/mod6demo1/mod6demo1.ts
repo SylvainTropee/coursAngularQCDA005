@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-mod6demo1',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   templateUrl: './mod6demo1.html',
   styleUrl: './mod6demo1.css',
@@ -12,6 +13,7 @@ import {AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators
 export class Mod6demo1 {
 
   public form: FormGroup
+  public name? : string
 
   constructor() {
     this.form = new FormGroup(
@@ -42,9 +44,15 @@ export class Mod6demo1 {
       console.log(this.form.value)
     }else{
       console.log("C'est pas bon !")
+      this.form.markAllAsTouched()
     }
   }
 
 
-
+  checkName(event : Event) {
+    console.log(event)
+    if(this.name?.trim().length == 0){
+      console.log('Champs requis')
+    }
+  }
 }
