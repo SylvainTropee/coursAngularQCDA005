@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Joke} from './joke';
-import {catchError, distinctUntilChanged, map, retry, switchMap, tap, timeout} from 'rxjs';
+import {catchError, distinctUntilChanged, firstValueFrom, map, retry, switchMap, tap, timeout} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -60,6 +60,12 @@ export class Mod7demo1 {
     this.http.post<any>(`${this.BASE_URL}/12`, data)
 
     return this.http.get<any>(`${this.BASE_URL}/12`, {params : params})
+  }
+
+  async getJoke5() {
+
+    const joke = await firstValueFrom(this.http.get<Joke>(this.BASE_URL))
+    console.log(joke)
   }
 
 }
